@@ -14,3 +14,6 @@ npm run build
 6. Crear la nueva rama `gh-pages`
 7. Eliminar todos los archivos excepto los de la carpeta `dist`
 8. Subir los cambios al repo.
+
+## Puedes ver el resultado aquí
+[https://irenearagon.github.io/Modulo7-Cloud-01-manual/#/characters](https://irenearagon.github.io/Modulo7-Cloud-01-manual/#/characters)
