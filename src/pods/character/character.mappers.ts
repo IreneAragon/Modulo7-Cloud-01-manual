@@ -7,10 +7,15 @@ export const mapCharacterFromApiToVm = (
   ...character,
   id: character.id,
   name: character.name,
-  description: character.shortDescription,
-  rating: character.characterRating,
-  address: character.address1,
-  city: character.city,
+  image: character.image,
+  status: character.status,
+  type: character.type,
+  gender: character.gender,
+  origin: {
+    name: character.origin.name, 
+    url: character.origin.url,
+  }, 
+  url: character.url
 });
 
 export const mapCharacterFromVmToApi = (character: viewModel.Character): apiModel.Character =>
@@ -18,8 +23,13 @@ export const mapCharacterFromVmToApi = (character: viewModel.Character): apiMode
     ...character,
     id: character.id,
     name: character.name,
-    shortDescription: character.description,
-    characterRating: character.rating,
-    address1: character.address,
-    city: character.city,
+    image: character.image,
+    status: character.status,
+    type: character.type,
+    gender: character.gender,
+    origin: {
+      name: character.origin.name, 
+      url: character.origin.url,
+    }, 
+    url: character.url
   } as unknown) as apiModel.Character);
