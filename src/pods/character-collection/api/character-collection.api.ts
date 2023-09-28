@@ -1,20 +1,21 @@
 import axios from 'axios';
 import { CharacterEntityApi } from './character-collection.api-model';
-// import { mockCharacterCollection } from './character-collection.mock-data';
 
-// let characterCollection = [...mockCharacterCollection];
+interface ApiResponse {
+  info: {
+    count: number;
+    pages: number;
+    next: string | null;
+    prev: string | null;
+  };
+  results: CharacterEntityApi[];
+}
 
-const url = '/api/characters/'; 
+const url = 'https://rickandmortyapi.com/api/character'; 
 
 export const getCharacterCollection = () => {
-  return axios.get<CharacterEntityApi[]>(url).then(({ data }) => data);
+  return axios.get<ApiResponse>(url).then(response => {
+    const results = response.data.results;
+    return results
+  })
 };
-
-// export const getCharacterCollection = async (): Promise<CharacterEntityApi[]> => {
-//   return characterCollection;
-// };
-
-// export const deleteCharacter = async (id: number): Promise<boolean> => {
-//   characterCollection = characterCollection.filter((h) => h.id !== id);
-//   return true;
-// };
